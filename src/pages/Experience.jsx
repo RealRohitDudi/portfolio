@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import ExperienceCard from '../components/ui/ExperienceCard';
+import useThemeStore from '../store/themeStore';
 
 const Experience = () => {
+  const { darkMode } = useThemeStore();
   const experiences = [
     {
       title: 'Senior Full Stack Developer',
@@ -33,7 +35,7 @@ const Experience = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 pb-12">
+    <div className={`min-h-screen pt-20 pb-12 ${darkMode ? 'bg-black' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -42,10 +44,10 @@ const Experience = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             Work Experience
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             My professional journey and achievements
           </p>
         </motion.div>

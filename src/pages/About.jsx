@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { FiDownload, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
+import useThemeStore from '../store/themeStore';
 
 const About = () => {
+  const { darkMode } = useThemeStore();
   const socialLinks = [
     {
       icon: FiGithub,
@@ -21,7 +23,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 pb-12">
+    <div className={`min-h-screen pt-20 pb-12 ${darkMode ? 'bg-black' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -30,10 +32,10 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             About Me
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Get to know more about my journey and passion
           </p>
         </motion.div>
@@ -78,10 +80,10 @@ const About = () => {
             className="space-y-6"
           >
             <div>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h2 className={`text-2xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 Who am I?
               </h2>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
                 I'm a passionate Full Stack Developer with over 5 years of experience
                 in building modern web applications. I specialize in JavaScript
                 technologies and have a strong foundation in both frontend and
@@ -90,10 +92,10 @@ const About = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h2 className={`text-2xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 My Journey
               </h2>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
                 My journey in web development began during my college years when I
                 discovered my passion for creating interactive and user-friendly
                 applications. Since then, I've worked with various companies and
@@ -102,10 +104,10 @@ const About = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h2 className={`text-2xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 What I Do
               </h2>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+              <ul className={`space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 <li>• Full Stack Web Development</li>
                 <li>• UI/UX Design Implementation</li>
                 <li>• Performance Optimization</li>
@@ -115,10 +117,10 @@ const About = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h2 className={`text-2xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 Personal Interests
               </h2>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
                 When I'm not coding, you can find me exploring new technologies,
                 contributing to open-source projects, or enjoying outdoor activities
                 like hiking and photography. I believe in continuous learning and

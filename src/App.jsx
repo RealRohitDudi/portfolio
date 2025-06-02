@@ -18,9 +18,9 @@ const AppContent = () => {
 
   return (
     <div
-      className={`min-h-screen ${
-        darkMode ? "bg-dark-100" : "bg-white"
-      } transition-colors duration-300`}
+      className={`min-h-screen transition-colors duration-300 ${
+        darkMode ? "dark bg-black text-white" : "bg-white text-gray-900"
+      }`}
     >
       <Navbar />
       <AnimatePresence mode="wait">

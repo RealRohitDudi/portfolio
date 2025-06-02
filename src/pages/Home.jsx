@@ -3,24 +3,33 @@ import { useRef } from "react";
 
 import { motion } from "framer-motion";
 import HeroModel from "../components/3d/HeroModel";
-import { useThemeStore } from "../store/themeStore";
+import useThemeStore from "../store/themeStore";
 import ProjectCard from "../components/ui/ProjectCard";
-import { FiCode, FiDatabase, FiLayout, FiServer } from "react-icons/fi";
-
 import {
+  FiCode,
+  FiDatabase,
+  FiLayout,
+  FiServer,
+  FiTerminal,
+  FiGitBranch,
+  FiCpu,
+  FiBox,
+  FiLayers,
+  FiDatabase as FiMongoDB,
+  FiPackage,
+  FiServer as FiNode,
+  FiDatabase as FiMongoose,
+  FiCpu as FiLangChain,
+} from "react-icons/fi";
+import {
+  SiCplusplus,
+  SiSwift,
   SiJavascript,
-  SiTypescript,
+  SiExpress,
   SiReact,
-  SiNodedotjs,
-  SiPython,
-  SiMongodb,
-  SiPostgresql,
-  SiTailwindcss,
-  SiFigma,
-  SiGit,
-  SiDocker,
+  SiNextdotjs,
+  SiVite,
 } from "react-icons/si";
-import { FaAws } from "react-icons/fa";
 
 const Home = () => {
   const { darkMode, toggleDarkMode } = useThemeStore();
@@ -41,71 +50,71 @@ const Home = () => {
   const featuredSkills = [
     {
       title: " Data Structures & Algorithms ",
-      icon: FiCode,
+      icon: FiCpu,
     },
     {
       title: "C/C++",
-      icon: FiDatabase,
+      icon: SiCplusplus,
     },
     {
       title: "Swift",
-      icon: FiCode,
+      icon: SiSwift,
     },
     {
       title: "Javascript",
-      icon: FiCode,
+      icon: SiJavascript,
     },
     {
       title: "Database management system",
-      icon: FiCode,
+      icon: FiDatabase,
     },
     {
       title: "Backend ",
-      icon: FiCode,
+      icon: FiServer,
     },
     {
       title: "Express",
-      icon: FiCode,
+      icon: SiExpress,
     },
     {
       title: "System Design ",
-      icon: FiCode,
+      icon: FiLayers,
     },
     {
       title: "Git & Github",
-      icon: FiCode,
+      icon: FiGitBranch,
     },
     {
       title: "Terminal & Bash",
-      icon: FiCode,
+      icon: FiTerminal,
     },
     {
       title: "react.js",
-      icon: FiCode,
+      icon: SiReact,
     },
     {
       title: "MongoDB",
-      icon: FiCode,
+      icon: FiMongoDB,
     },
     {
       title: "Vite",
-      icon: FiCode,
+      icon: SiVite,
     },
     {
       title: "next.js",
-      icon: FiCode,
+      icon: SiNextdotjs,
     },
     {
       title: "node.js",
-      icon: FiCode,
+      icon: FiNode,
     },
     {
       title: "mongoose ",
-      icon: FiCode,
+      icon: FiMongoose,
     },
     {
       title: "langchain",
-      icon: FiCode,
+      icon: FiLangChain,
     },
   ];
 
@@ -129,7 +138,7 @@ const Home = () => {
     // Add more projects here
   ];
   return (
-    <div className="min-h-screen">
+    <div className={`min-h-screen ${darkMode ? "bg-black" : "bg-white"}`}>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* 3D Model */}
@@ -152,20 +161,31 @@ const Home = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center px-4">
+        <div
+          className={`relative z-10 text-center px-4 ${
+            darkMode ? "dark bg-black text-white" : "bg-white text-gray-900"
+          }`}
+        >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold text-gray-500 dark:text-gray-200 mb-6"
+            className={`text-5xl md:text-7xl font-bold mb-6 ${
+              darkMode ? "text-gray-500" : "text-gray-500"
+            }`}
           >
-            Hi, I'm <span className="text-gray-500">Rohit Dudi</span>
+            Hi, I'm{" "}
+            <span className={darkMode ? "text-white" : "text-gray-900"}>
+              Rohit Dudi
+            </span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8"
+            className={`text-xl md:text-2xl mb-8 ${
+              darkMode ? "text-gray-300" : "text-gray-600"
+            }`}
           >
             Juniour Professional in Software Engineering
           </motion.p>
@@ -173,17 +193,21 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-around p-4 space-x-4 "
+            className="flex justify-around p-4 space-x-4"
           >
             <a
               href="/projects"
-              className="px-4 py-2 rounded-2xl border-1 border-gray-500 dark:border-gray-200 btn-primary  border-4 border-transparent animate-spin-gradient"
+              className={`px-4 py-2 rounded-2xl border-1 ${
+                darkMode ? "border-white" : "border-gray-500"
+              } btn-primary `}
             >
               View Projects
             </a>
             <a
               href="/contact"
-              className="px-4 py-2 rounded-2xl border-1 border-gray-500 dark:border-gray-200 btn-secondary"
+              className={`px-4 py-2 rounded-2xl border-1 ${
+                darkMode ? "border-white" : "border-gray-500"
+              } btn-secondary`}
             >
               Contact Me
             </a>
@@ -197,7 +221,11 @@ const Home = () => {
           transition={{ delay: 1 }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
-          <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
+          <div
+            className={`w-6 h-10 border-2 ${
+              darkMode ? "border-gray-600" : "border-gray-400"
+            } rounded-full flex justify-center`}
+          >
             <motion.div
               animate={{
                 y: [0, 12, 0],
@@ -214,8 +242,16 @@ const Home = () => {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-20 bg-gray-50 dark:bg-dark-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className={`py-20 ${
+          darkMode ? "dark bg-black text-white" : "bg-white text-gray-900"
+        }`}
+      >
+        <div
+          className={`${
+            darkMode ? "dark bg-black text-white" : "bg-white text-gray-900"
+          }max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 `}
+        >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -226,10 +262,13 @@ const Home = () => {
             Featured Projects
           </motion.h2>
 
-          <div className="w-full p-4 bg-gray-100 rounded-lg relative">
+          <div className="w-full p-4 rounded-lg relative">
             <button
               onClick={() => scrollProjects(-400)}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-white p-2 rounded-full shadow-lg hover:bg-green-600 transition"
+              className={`absolute left-0 top-1/2 transform -translate-y-1/2 ${
+                darkMode ? "bg-gray-900" : "bg-gray-500"
+              } text-white p-2 rounded-full z-10 shadow-lg hover:bg-gray-600 transition"
+              aria-label="Scroll Right`}
               aria-label="Scroll Left"
             >
               &#8592;
@@ -237,8 +276,10 @@ const Home = () => {
 
             <button
               onClick={() => scrollProjects(400)}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-white p-2 rounded-full shadow-lg hover:bg-green-600 transition"
-              aria-label="Scroll Right"
+              className={`absolute right-0 top-1/2 transform -translate-y-1/2 ${
+                darkMode ? "bg-gray-900" : "bg-gray-500"
+              } text-white p-2 rounded-full z-10 shadow-lg hover:bg-gray-600 transition"
+              aria-label="Scroll Right`}
             >
               &#8594;
             </button>
@@ -266,11 +307,14 @@ const Home = () => {
             Skills & Expertise
           </motion.h2>
 
-          <div className="w-full p-4 bg-gray-100 rounded-lg relative">
+          <div className="w-full p-4  rounded-lg relative">
             {/* Scroll buttons */}
             <button
               onClick={() => scrollSkills(-200)}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-white p-2 rounded-full shadow-lg hover:bg-green-600 transition"
+              className={`absolute left-0 top-1/2 transform -translate-y-1/2 ${
+                darkMode ? "bg-gray-900" : "bg-gray-500"
+              } text-white p-2 rounded-full  shadow-lg hover:bg-gray-600 transition"
+              aria-label="Scroll Right`}
               aria-label="Scroll Left"
             >
               &#8592;
@@ -278,7 +322,10 @@ const Home = () => {
 
             <button
               onClick={() => scrollSkills(200)}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 text-white p-2 rounded-full shadow-lg hover:bg-green-600 transition"
+              className={`absolute right-0 top-1/2 transform -translate-y-1/2 ${
+                darkMode ? "bg-gray-900" : "bg-gray-500"
+              } text-white p-2 rounded-full shadow-lg hover:bg-gray-600 transition"
+              aria-label="Scroll Right`}
               aria-label="Scroll Right"
             >
               &#8594;

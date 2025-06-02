@@ -14,10 +14,12 @@ const useThemeStore = create<ThemeState>((set) => ({
         set((state) => {
             const newDarkMode = !state.darkMode;
             localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
+            document.documentElement.classList.toggle('dark', newDarkMode);
             return { darkMode: newDarkMode };
         }),
     setDarkMode: (darkMode: boolean) => {
         localStorage.setItem('darkMode', JSON.stringify(darkMode));
+        document.documentElement.classList.toggle('dark', darkMode);
         return set({ darkMode });
     },
 }));

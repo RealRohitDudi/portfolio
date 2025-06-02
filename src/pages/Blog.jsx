@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiCalendar, FiClock, FiTag } from 'react-icons/fi';
+import useThemeStore from '../store/themeStore';
 
 const Blog = () => {
+  const { darkMode } = useThemeStore();
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   // Sample blog posts data - replace with your actual blog posts
@@ -35,7 +37,7 @@ const Blog = () => {
   );
 
   return (
-    <div className="min-h-screen pt-20 pb-12">
+    <div className={`min-h-screen pt-20 pb-12 ${darkMode ? 'bg-black' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -44,10 +46,10 @@ const Blog = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             Blog
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Thoughts, tutorials, and insights about web development
           </p>
         </motion.div>
@@ -61,7 +63,9 @@ const Blog = () => {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                 selectedCategory === category
                   ? 'bg-primary-500 text-white'
-                  : 'bg-gray-100 dark:bg-dark-300 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-400'
+                  : darkMode 
+                    ? 'bg-gray-900 text-gray-300 hover:bg-gray-800'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -77,7 +81,7 @@ const Blog = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card group"
+              className={`card group ${darkMode ? 'bg-gray-900' : 'bg-white'}`}
             >
               {/* Image */}
               <div className="relative overflow-hidden rounded-lg mb-4">
@@ -91,7 +95,7 @@ const Blog = () => {
 
               {/* Content */}
               <div className="space-y-4">
-                <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-300">
+                <div className={`flex items-center space-x-4 text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   <div className="flex items-center space-x-1">
                     <FiCalendar className="w-4 h-4" />
                     <span>{post.date}</span>
@@ -102,17 +106,17 @@ const Blog = () => {
                   </div>
                 </div>
 
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors duration-200">
+                <h2 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'} group-hover:text-primary-500 transition-colors duration-200`}>
                   {post.title}
                 </h2>
 
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
                   {post.excerpt}
                 </p>
 
                 <div className="flex items-center space-x-2">
                   <FiTag className="w-4 h-4 text-primary-500" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                  <span className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     {post.category}
                   </span>
                 </div>
@@ -135,7 +139,7 @@ const Blog = () => {
             animate={{ opacity: 1 }}
             className="text-center py-12"
           >
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
               No blog posts found in this category.
             </p>
           </motion.div>

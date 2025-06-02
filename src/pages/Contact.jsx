@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
+import useThemeStore from '../store/themeStore';
 
 const Contact = () => {
+  const { darkMode } = useThemeStore();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -60,7 +62,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 pb-12">
+    <div className={`min-h-screen pt-20 pb-12 ${darkMode ? 'bg-black' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -69,10 +71,10 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             Get in Touch
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Let's discuss your next project or opportunity
           </p>
         </motion.div>
@@ -91,16 +93,16 @@ const Contact = () => {
                 href={info.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-dark-200 transition-colors duration-200"
+                className={`flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors duration-200 ${darkMode ? 'text-white' : 'text-gray-900'}`}
               >
                 <div className="p-3 bg-primary-500/10 rounded-lg">
                   <info.icon className="w-6 h-6 text-primary-500" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className={`text-lg font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                     {info.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">{info.content}</p>
+                  <p className={darkMode ? 'text-gray-300' : 'text-gray-600'}>{info.content}</p>
                 </div>
               </a>
             ))}
@@ -116,7 +118,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
                 >
                   Name
                 </label>
@@ -127,14 +129,14 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full px-4 py-2 bg-white dark:bg-dark-200 border border-gray-200 dark:border-dark-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className={`mt-1 block w-full px-4 py-2 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} border ${darkMode ? 'border-gray-700' : 'border-gray-200'} rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500`}
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
                 >
                   Email
                 </label>
@@ -145,14 +147,14 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full px-4 py-2 bg-white dark:bg-dark-200 border border-gray-200 dark:border-dark-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className={`mt-1 block w-full px-4 py-2 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} border ${darkMode ? 'border-gray-700' : 'border-gray-200'} rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500`}
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
                 >
                   Subject
                 </label>
@@ -163,14 +165,14 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full px-4 py-2 bg-white dark:bg-dark-200 border border-gray-200 dark:border-dark-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className={`mt-1 block w-full px-4 py-2 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} border ${darkMode ? 'border-gray-700' : 'border-gray-200'} rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500`}
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
                 >
                   Message
                 </label>
@@ -181,7 +183,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="mt-1 block w-full px-4 py-2 bg-white dark:bg-dark-200 border border-gray-200 dark:border-dark-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className={`mt-1 block w-full px-4 py-2 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} border ${darkMode ? 'border-gray-700' : 'border-gray-200'} rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500`}
                 />
               </div>
 

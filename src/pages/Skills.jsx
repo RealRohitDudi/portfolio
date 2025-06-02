@@ -12,13 +12,13 @@ import {
   SiFigma,
   SiGit,
   SiDocker,
-  
 } from 'react-icons/si';
 import { FaAws } from "react-icons/fa";
-
 import SkillCard from '../components/ui/SkillCard';
+import useThemeStore from '../store/themeStore';
 
 const Skills = () => {
+  const { darkMode } = useThemeStore();
   const skillCategories = [
     {
       title: 'Frontend Development',
@@ -61,7 +61,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 pb-12">
+    <div className={`min-h-screen pt-20 pb-12 ${darkMode ? 'bg-black' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -70,10 +70,10 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             Skills & Expertise
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             A showcase of my technical skills and professional expertise
           </p>
         </motion.div>
@@ -90,7 +90,7 @@ const Skills = () => {
             >
               <div className="flex items-center mb-6">
                 <category.icon className="w-6 h-6 text-primary-500 mr-2" />
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                <h2 className={`text-2xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   {category.title}
                 </h2>
               </div>
