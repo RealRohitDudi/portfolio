@@ -60,22 +60,18 @@ const Navbar = () => {
             ))}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-gray-200 dark:bg-dark-300 hover:bg-gray-300 dark:hover:bg-dark-400 transition-colors duration-200"
+              className="rounded-lg p-2 hover:bg-gray-500 transition-colors duration-200"
             >
               {darkMode ? (
                 <FiSun
                   className={`w-5 h-5 ${
-                    darkMode
-                      ? "dark bg-black text-white"
-                      : "bg-white text-gray-900"
+                    darkMode ? "text-white" : "text-gray-900"
                   }`}
                 />
               ) : (
                 <FiMoon
                   className={`w-5 h-5 ${
-                    darkMode
-                      ? "dark bg-black text-white"
-                      : "bg-white text-gray-900"
+                    darkMode ? "dark text-white" : " text-gray-900"
                   }`}
                 />
               )}
