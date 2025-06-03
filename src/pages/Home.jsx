@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { useRef } from "react";
-
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import HeroModel from "../components/3d/HeroModel";
 import useThemeStore from "../store/themeStore";
@@ -195,22 +195,41 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex justify-around p-4 space-x-4"
           >
-            <a
-              href="/projects"
-              className={`px-4 py-2 rounded-2xl border-1 ${
-                darkMode ? "border-white" : "border-gray-500"
-              } btn-primary `}
+            <Link
+              to="/projects"
+              className={`font-sans-serif px-4 py-2 flex items-center gap-2 border-gray-500  rounded-2xl border transition-all duration-300 ease-in-out hover:scale-105  hover:border-blue-500 ${
+                darkMode ? " text-white" : " text-gray-800"
+              } btn-primary`}
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e3e3e3"
+              >
+                <path d="M80-140v-320h320v320H80Zm80-80h160v-160H160v160Zm60-340 220-360 220 360H220Zm142-80h156l-78-126-78 126ZM863-42 757-148q-21 14-45.5 21t-51.5 7q-75 0-127.5-52.5T480-300q0-75 52.5-127.5T660-480q75 0 127.5 52.5T840-300q0 26-7 50.5T813-204L919-98l-56 56ZM660-200q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29ZM320-380Zm120-260Z" />
+              </svg>
               View Projects
-            </a>
-            <a
-              href="/contact"
-              className={`px-4 py-2 rounded-2xl border-1 ${
-                darkMode ? "border-white" : "border-gray-500"
+            </Link>
+
+            <Link
+              to="/contact"
+              className={`font-sans-serif px-4 py-2 flex items-center gap-2 rounded-2xl border transition-all duration-300 ease-in-out hover:scale-105  hover:border-blue-500  ${
+                darkMode ? "border-gray-500" : "border-gray-500"
               } btn-secondary`}
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e3e3e3"
+              >
+                <path d="M480-240q-56 0-107 17.5T280-170v10h400v-10q-42-35-93-52.5T480-240Zm-280 34q54-53 125.5-83.5T480-320q83 0 154.5 30.5T760-206v-514H200v514Zm280-194q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm0-80q25 0 42.5-17.5T540-540q0-25-17.5-42.5T480-600q-25 0-42.5 17.5T420-540q0 25 17.5 42.5T480-480ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm280-460Zm0 380h200-400 200Z" />
+              </svg>
               Contact Me
-            </a>
+            </Link>
           </motion.div>
         </div>
 
@@ -219,7 +238,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2"
         >
           <div
             className={`w-6 h-10 border-2 ${
@@ -296,18 +315,18 @@ const Home = () => {
 
       {/* Skills Preview Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl flex flex-col justify-center items-center mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="section-title text-center"
+            className="section-title font-sans text-xl text-center"
           >
             Skills & Expertise
           </motion.h2>
 
-          <div className="w-full p-4  rounded-lg relative">
+          <div className="w-full p-4 overflow-x-hidden w-full max-w-full  rounded-lg relative">
             {/* Scroll buttons */}
             <button
               onClick={() => scrollSkills(-200)}
@@ -353,6 +372,12 @@ const Home = () => {
                     ))}
                 </div>
               ))}
+            </div>
+            <div className="flex w-full justify-center items-center pt-4">
+              {" "}
+              <Link to="/skills" className="px-4 py-2 border rounded-full">
+                See Score
+              </Link>
             </div>
           </div>
         </div>

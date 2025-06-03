@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
 import useThemeStore from "../../store/themeStore.js";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -79,48 +80,16 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Navigation Button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={toggleDarkMode}
-              className={`${
-                darkMode
-                  ? "dark bg-black hover:bg-gray-800"
-                  : "bg-white text-gray-900 hover:bg-gray-300"
-              } p-2 mr-2 rounded-lg   transition-colors duration-200`}
-            >
-              {darkMode ? (
-                <FiSun className={`w-6 h-6 "text-gray-900"}`} />
-              ) : (
-                <FiMoon
-                  className={`w-6 h-6 ${
-                    darkMode ? "text-white" : " text-gray-900"
-                  }`}
-                />
-              )}
-            </button>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`${
-                darkMode
-                  ? "dark bg-black hover:bg-gray-800"
-                  : "bg-white text-gray-900 hover:bg-gray-300"
-              } p-2 mr-2 rounded-lg   transition-colors duration-200`}
-            >
-              {isOpen ? (
-                <FiX
-                  className={`w-6 h-6 ${
-                    darkMode ? " text-white" : " text-gray-900"
-                  }`}
-                />
-              ) : (
-                <FiMenu
-                  className={`w-6 h-6 ${
-                    darkMode ? "text-white" : " text-gray-900"
-                  }`}
-                />
-              )}
-            </button>
-          </div>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden rounded-lg p-2 hover:bg-gray-500 transition-colors duration-200"
+          >
+            {isOpen ? (
+              <FiX className="w-6 h-6" />
+            ) : (
+              <FiMenu className="w-6 h-6" />
+            )}
+          </button>
         </div>
       </div>
 
@@ -139,8 +108,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
                   location.pathname === link.path
-                    ? "text-primary-500 dark:text-primary-400 bg-gray-100 dark:bg-dark-200"
-                    : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-dark-200"
+                    ? "text-blue-500 hover:text-gray-300 "
+                    : "text-white hover:text-gray-300 "
                 }`}
                 onClick={() => setIsOpen(false)}
               >
