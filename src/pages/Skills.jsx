@@ -33,7 +33,7 @@ const Skills = () => {
                 {
                     name: "TypeScript",
                     icon: SiTypescript,
-                    level: 90,
+                    level: 85,
                     color: "#3178C6",
                 },
                 { name: "React", icon: SiReact, level: 95, color: "#61DAFB" },
@@ -74,7 +74,6 @@ const Skills = () => {
             title: "UI/UX Design",
             icon: FiLayout,
             skills: [
-                { name: "Figma", icon: SiFigma, level: 85, color: "#F24E1E" },
                 {
                     name: "Responsive Design",
                     icon: FiLayout,
@@ -94,8 +93,8 @@ const Skills = () => {
             icon: FiDatabase,
             skills: [
                 { name: "Git", icon: SiGit, level: 95, color: "#F05032" },
-                { name: "Docker", icon: SiDocker, level: 85, color: "#2496ED" },
-                { name: "AWS", icon: FaAws, level: 80, color: "#232F3E" },
+                { name: "Docker", icon: SiDocker, level: 10, color: "#2496ED" },
+                { name: "AWS", icon: FaAws, level: 10, color: "#232F3E" },
             ],
         },
     ];
