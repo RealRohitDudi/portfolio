@@ -57,20 +57,20 @@ const Contact = () => {
         {
             icon: FiGithub,
             title: "GitHub",
-            content: "DevRohitDudi",
-            link: "https://github.com/DevRohitDudi",
+            content: "RealRohitDudi",
+            link: "https://github.com/RealRohitDudi",
         },
         {
             icon: FiLinkedin,
             title: "LinkedIn",
             content: "rohit-dudi",
-            link: "https://linkedin.com/in/rohit-dudi",
+            link: "https://linkedin.com/in/RealRohitDudi",
         },
         {
             icon: FiMapPin,
             title: "Website",
             content: "devrohitdudi.vercel.app",
-            link: "https://devrohitdudi.vercel.app/",
+            link: "https://rohitdudi.vercel.app/",
         },
     ];
 
